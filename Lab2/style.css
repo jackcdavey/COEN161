@@ -1,0 +1,64 @@
+html, body {
+ margin: 0;
+ padding: 0;
+ height: 100%;
+ width: 100%;
+}
+body{
+	padding-top: 30px;
+}
+nav{
+	position: fixed;
+    top: 0px;
+	height: 30px;
+	width:100%;
+	text-align: center;
+	padding-bottom: 15px;
+
+}
+footer{
+	clear: both;
+	width: 100%;
+}
+
+li {
+  display: inline;
+}
+
+a:hover {
+	color: black;
+}
+a {
+  text-decoration: none;
+}
+
+
+.primary{
+	background-color: white;
+}
+.secondary{
+	background-color: lavender;
+}
+.accent{
+	background-color: red;
+}
+.primary-text{
+	color: black;
+}
+.secondary-text{
+	color: gray;
+}
+.accent-text{
+	color: peachpuff;
+}
+.left-col{
+	float: left;
+	width: 25%;
+}
+.right-col{
+	float: left;
+	width: 75%
+}
+.row{
+	clear:both;
+}

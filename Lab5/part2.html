@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lab 4 - Part 2</title>
+	<style>
+		#resultDiv {
+
+		}
+	</style>
+</head>
+<body onload="clearIt()">
+	<h1>Calculator</h1>
+	<label>Input #1 <input id="input1" type="text"></label>
+	<label>Input #2 <input id="input2" type="text"></label>
+	<input type="button" value="add" onclick="addition()">
+	<input type="button" value="subtract" onclick="subtraction()">
+	<input type="button" value="multiply" onclick="multiplication()">
+	<input type="button" value="divide" onclick="division()"> 
+	<div id="resultDiv">Operator: <span id="operator"></span><br>Result:<span id="result"></span><br><input type="button" value="clear" onclick="clearIt()"></div>
+	<script>
+		function addition() {
+			document.getElementById("operator").innerHTML = 'Addition';
+			var value1 = document.getElementById('input1').value;
+			var value2 = document.getElementById('input2').value;
+			document.getElementById('result').innerHTML = parseInt(value1) + parseInt(value2);
+			unHide();
+		}
+		function subtraction() {
+			document.getElementById("operator").innerHTML = 'Subtraction';
+			var value1 = document.getElementById('input1').value;
+			var value2 = document.getElementById('input2').value;
+			document.getElementById('result').innerHTML = parseInt(value1) - parseInt(value2);
+			unHide();
+
+		}
+		function multiplication() {
+			document.getElementById("operator").innerHTML = 'Multiplication';
+			var value1 = document.getElementById('input1').value;
+			var value2 = document.getElementById('input2').value;
+			document.getElementById('result').innerHTML = parseInt(value1) * parseInt(value2);
+			unHide();
+
+		}
+		function division() {
+			document.getElementById("operator").innerHTML = 'Division';
+			var value1 = document.getElementById('input1').value;
+			var value2 = document.getElementById('input2').value;
+			document.getElementById('result').innerHTML = Math.floor(parseInt(value1) / parseInt(value2));	
+			unHide();
+		}
+		function clearIt(){
+			var x = document.getElementById("resultDiv");
+			x.style.display = 'none';
+			document.getElementById('input1').value = "";
+			document.getElementById('input2').value = "";
+
+		}
+		function unHide(){
+			var x = document.getElementById("resultDiv");
+			x.style.display = 'block';
+		}
+	</script>
+</body>
+</html>

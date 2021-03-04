@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Binary Search Tree</title>
+</head>
+<body>
+	<script type="text/javascript" src="http://students.engr.scu.edu/~adiaztos/resources/testBst.js"></script>
+	<script>
+		(function(){
+			function Node(val){
+				this.right=null;
+				this.left=null;
+				this.val=val;
+			}
+
+			function newTree(){
+				this.root=null;
+			}
+
+			newTree.prototype.inorder = function(fn){
+                    var node = this.root;	
+
+                    function moveTo(x){
+                        if(x){		
+                            moveTo(x.left);
+                            fn(x.val);
+                            moveTo(x.right);
+                        }
+                    }
+                    moveTo(node);
+            }
+
+            newTree.prototype.search = function(val){
+				if(val!=null){
+					var pos = this.root;
+					while(pos != null){
+						if(val == pos.val)
+							return true;
+						else if (val > pos.val)
+							pos = pos.right;
+						else
+							pos = pos.left;
+					}
+				}
+				return false;
+			}
+
+			newTree.prototype.insert=function(val){
+				root=this.root;
+				if(!root){
+					this.root=new Node(val);
+					return;
+				}
+				current=root;
+				while(current){
+					if(val > current.val){
+						if(current.right == null){
+							current.right = new Node(val);
+							break;
+						} else
+							current = current.right;
+					} else {
+						if(current.left == null){
+							current.left = new Node(val);
+							break;
+						} else
+							current = current.left;
+					}
+				}
+			}
+
+
+            var bst = new newTree();        
+            testBst(bst);
+		})();
+	</script>
+</body>
+</html>

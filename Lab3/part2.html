@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Functions</title>
+</head>
+<body>
+	<script>
+
+		/* Test data */
+		const minArray = [5, 4, 3, 2, 1];
+		const str1 = "racecar";
+		const str2 = "madame";
+		const str3 = "palindrome";
+		const occurArray = ["one", "two", "two", "three", "three", "three"];
+		
+		/* 
+			1. Write a function to find the min in the given array 
+		*/
+		function findMin(arr) {
+			if(!arr){
+				console.log("array is empty");
+				return;
+			}
+			var min=arr[0];
+			for(var i=1; i<arr.length; i++){
+				if(arr[i]<min)
+					min=arr[i];
+			}
+			return min;
+		}
+
+		// call and log the result
+		console.log(findMin(minArray));
+
+		/* 
+			2. Write a function that returns true if a string is a palindrome, otherwise return false 
+		*/
+		function isPalindrome(str) {
+			if(!str){
+				console.log("string is empty");
+				return;
+			}
+			var pos=0;
+			while(pos<=str.length/2){
+				if(str[pos]==str[str.length-pos-1])
+					pos++;
+				else
+					return false;
+			}
+			return true;
+		}
+
+		console.log(isPalindrome(str3));
+
+		/* 
+			3. Write a function that returns the string that occurs the most in an array 
+		*/
+		function maxOccurs(arr) {
+			if(!arr){
+				console.log("arr is empty");
+				return;
+			}
+			var count = {};
+			var max=0;
+			var mainWord = arr[0];
+			for(var i=0; i<arr.length; i++){
+				if(count[arr[i]]===undefined)
+					count[arr[i]] = 1;
+				else
+					count[arr[i]]++;
+				if(count[arr[i]]>max)
+					mainWord = arr[i];
+			}
+			return mainWord;
+		}
+
+		console.log(maxOccurs(occurArray));
+
+	</script>
+</body>
+</html>
